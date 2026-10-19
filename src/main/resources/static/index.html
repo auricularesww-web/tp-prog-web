@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Biblioteca</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main id="vistaAuth" class="auth">
+        <header class="auth-titulo">
+            <h1>Mi Biblioteca</h1>
+            <p>Guardá los libros que tenés y encontralos cuando quieras.</p>
+        </header>
+
+        <div class="auth-paneles">
+            <section class="panel">
+                <h2>Iniciar sesión</h2>
+                <form id="loginForm" novalidate>
+                    <label for="logEmail">Email</label>
+                    <input type="email" id="logEmail" autocomplete="username" required>
+
+                    <label for="logPassword">Contraseña</label>
+                    <input type="password" id="logPassword" autocomplete="current-password" required>
+
+                    <button type="submit" class="btn btn-primario">Ingresar</button>
+                    <p id="msgLogin" class="mensaje" role="status"></p>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Crear cuenta</h2>
+                <form id="registroForm" novalidate>
+                    <label for="regNombre">Nombre</label>
+                    <input type="text" id="regNombre" autocomplete="name" required>
+
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" autocomplete="email" required>
+
+                    <label for="regPassword">Contraseña (ficticia, solo para pruebas)</label>
+                    <input type="password" id="regPassword" autocomplete="new-password" required>
+
+                    <button type="submit" class="btn btn-secundario">Crear cuenta</button>
+                    <p id="msgRegistro" class="mensaje" role="status"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+
+    <div id="vistaApp" class="app" hidden>
+        <header class="barra">
+            <h1>Mi Biblioteca</h1>
+            <div class="barra-usuario">
+                <span id="nombreUsuario"></span>
+                <button type="button" id="btnCerrarSesion" class="btn btn-secundario">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <main class="contenido">
+
+            <section class="panel">
+                <h2 id="tituloFormulario">Agregar un libro</h2>
+                <form id="libroForm" novalidate>
+                    <input type="hidden" id="libroId">
+
+                    <div class="grilla">
+                        <div>
+                            <label for="nombre">Título</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div>
+                            <label for="autor">Autor</label>
+                            <input type="text" id="autor" required>
+                        </div>
+                        <div>
+                            <label for="genero">Género</label>
+                            <input type="text" id="genero" required>
+                        </div>
+                        <div>
+                            <label for="anioDeCreacion">Año de publicación</label>
+                            <input type="number" id="anioDeCreacion" min="1" max="2100" required>
+                        </div>
+                        <div class="ancho-completo">
+                            <label for="urlFoto">URL de la portada (opcional)</label>
+                            <input type="url" id="urlFoto" placeholder="https://...">
+                        </div>
+                    </div>
+
+                    <div class="acciones">
+                        <button type="submit" id="btnGuardar" class="btn btn-primario">Guardar libro</button>
+                        <button type="button" id="btnCancelar" class="btn btn-secundario" hidden>Cancelar edición</button>
+                    </div>
+                    <p id="msgLibro" class="mensaje" role="status"></p>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>Mis libros</h2>
+
+                <form id="buscarForm" class="buscador">
+                    <label for="buscarTexto" class="visualmente-oculto">Buscar por título</label>
+                    <input type="search" id="buscarTexto" placeholder="Buscar por título...">
+                    <button type="submit" class="btn btn-primario">Buscar</button>
+                    <button type="button" id="btnLimpiarBusqueda" class="btn btn-secundario">Ver todos</button>
+                </form>
+
+                <p id="msgLista" class="mensaje" role="status"></p>
+
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Portada</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Género</th>
+                                <th>Año</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaLibros"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

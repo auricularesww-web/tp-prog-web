@@ -1,0 +1,116 @@
+:root {
+    --fondo: #f2f4f3;
+    --superficie: #ffffff;
+    --tinta: #1b2a33;
+    --tinta-suave: #5a6b73;
+    --borde: #d5dcd9;
+    --acento: #1f5d50;
+    --acento-oscuro: #17463c;
+    --peligro: #a63d2f;
+    --exito: #1f6b3a;
+    --radio: 6px;
+    --fuente-titulos: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --fuente-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--tinta);
+    font-family: var(--fuente-texto);
+    line-height: 1.5;
+}
+
+[hidden] { display: none !important; }
+
+h1, h2 { font-family: var(--fuente-titulos); font-weight: 600; margin: 0; }
+h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+
+/* ---------- Auth ---------- */
+.auth { max-width: 860px; margin: 0 auto; padding: 3rem 1.25rem; }
+.auth-titulo { margin-bottom: 2rem; }
+.auth-titulo h1 { font-size: 2.6rem; color: var(--acento); }
+.auth-titulo p { margin: .25rem 0 0; color: var(--tinta-suave); max-width: 48ch; }
+.auth-paneles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+/* ---------- Barra superior ---------- */
+.barra {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: .9rem 1.5rem; background: var(--acento); color: #fff;
+}
+.barra h1 { font-size: 1.4rem; }
+.barra-usuario { display: flex; align-items: center; gap: 1rem; }
+
+.contenido { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; display: grid; gap: 1.5rem; }
+
+/* ---------- Paneles y formularios ---------- */
+.panel {
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 1.5rem;
+}
+
+label { display: block; font-size: .9rem; font-weight: 600; margin: .9rem 0 .3rem; }
+form > label:first-child, .grilla > div:first-child label { margin-top: 0; }
+
+input {
+    width: 100%; padding: .6rem .7rem;
+    border: 1px solid var(--borde); border-radius: var(--radio);
+    font: inherit; color: inherit; background: #fff;
+}
+input:focus-visible, .btn:focus-visible, .btn-link:focus-visible {
+    outline: 3px solid #86b8ac; outline-offset: 1px;
+}
+
+.grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 1rem; }
+.grilla label { margin-top: .9rem; }
+.ancho-completo { grid-column: 1 / -1; }
+
+.acciones { display: flex; gap: .75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+
+/* ---------- Botones ---------- */
+.btn {
+    padding: .6rem 1.1rem; border-radius: var(--radio); border: 1px solid transparent;
+    font: inherit; font-weight: 600; cursor: pointer;
+}
+form > .btn { margin-top: 1.25rem; }
+.btn-primario { background: var(--acento); color: #fff; }
+.btn-primario:hover { background: var(--acento-oscuro); }
+.btn-secundario { background: transparent; color: var(--acento); border-color: var(--acento); }
+.barra .btn-secundario { color: #fff; border-color: #fff; }
+.btn-secundario:hover { background: rgba(31, 93, 80, .08); }
+.barra .btn-secundario:hover { background: rgba(255, 255, 255, .15); }
+
+.btn-link {
+    background: none; border: none; padding: .25rem .4rem; font: inherit;
+    font-weight: 600; cursor: pointer; text-decoration: underline;
+}
+.btn-editar { color: var(--acento); }
+.btn-eliminar { color: var(--peligro); }
+
+/* ---------- Mensajes ---------- */
+.mensaje { min-height: 1.4em; margin: .75rem 0 0; font-weight: 600; }
+.mensaje.error { color: var(--peligro); }
+.mensaje.exito { color: var(--exito); }
+
+/* ---------- Buscador ---------- */
+.buscador { display: flex; gap: .6rem; flex-wrap: wrap; }
+.buscador input { flex: 1 1 220px; width: auto; }
+.visualmente-oculto {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Tabla ---------- */
+.tabla-contenedor { overflow-x: auto; margin-top: .5rem; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th, td { padding: .6rem .7rem; text-align: left; border-bottom: 1px solid var(--borde); vertical-align: middle; }
+th { font-size: .85rem; color: var(--tinta-suave); font-weight: 600; }
+td img { width: 48px; height: 68px; object-fit: cover; border-radius: 3px; border: 1px solid var(--borde); display: block; }
+.vacio { text-align: center; color: var(--tinta-suave); padding: 1.5rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+    .btn { transition: background .15s; }
+}
