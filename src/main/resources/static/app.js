@@ -1,5 +1,5 @@
 
-const API_USUARIOS = "/usuarios";
+const API_USUARIOS = "/usuario";
 const API_LIBROS = "/libros";
 const CLAVE_SESION = "usuarioActual";
 
