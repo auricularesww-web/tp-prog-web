@@ -1,6 +1,6 @@
 
-const API_USUARIOS = "/api/usuarios";
-const API_LIBROS = "/api/libros";
+const API_USUARIOS = "/usuarios";
+const API_LIBROS = "/libros";
 const CLAVE_SESION = "usuarioActual";
 
 let librosMostrados = [];
